@@ -1,0 +1,27 @@
+#virtual enviroment
+virt/
+venv/
+.venv/
+
+#python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+#django stuff:
+db.sqlite3
+db.sqlite3-journal
+*.log
+media/
+staticfiles/
+
+#environment variables
+.env
+
+#editors and IDEs
+.idea/
+.vscode/
+
+#os files
+.DS_Store
+Thumbs.db
