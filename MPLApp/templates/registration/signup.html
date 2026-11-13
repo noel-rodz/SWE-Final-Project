@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign up - MPL</title>
+</head>
+<body>
+  <nav>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'login' %}">Log in</a>
+    <a href="{% url 'signup' %}">Sign up</a>
+  </nav>
+  <hr>
+
+  <h1>Sign up</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create account</button>
+  </form>
+
+  <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+</body>
+</html>
