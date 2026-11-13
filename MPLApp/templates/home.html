@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MPL - Music Playlists</title>
+</head>
+<body>
+  <nav>
+    <a href="{% url 'home' %}">Home</a>
+    {% if user.is_authenticated %}
+      Hi, {{ user.username }}
+      <form method="post" action="{% url 'logout' %}" style="display:inline">
+        {% csrf_token %}
+        <button type="submit">Log out</button>
+      </form>
+    {% else %}
+      <a href="{% url 'login' %}">Log in</a>
+      <a href="{% url 'signup' %}">Sign up</a>
+    {% endif %}
+  </nav>
+  <hr>
+
+  <h1>Share your music</h1>
+  <h2>Recent public playlists</h2>
+
+  {% for p in playlists %}
+    <p><strong>{{ p.title }}</strong> by {{ p.owner.username }}</p>
+  {% empty %}
+    <p>No playlists yet.</p>
+  {% endfor %}
+</body>
+</html>
